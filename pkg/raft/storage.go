@@ -232,3 +232,4 @@ func (fs *FileStorage) LoadLogEntries() ([]LogEntry, error) {
 	}
 
 	return entries, nil
+}
