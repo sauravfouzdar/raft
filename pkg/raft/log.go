@@ -4,6 +4,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"sync"
+
+	"github.com/sauravfouzdar/raft/pkg/protocol"
 )
 
 // LogEntryType defines the type of a log entry
@@ -194,6 +196,26 @@ func (l *Log) GetLogSize() int {
 	l.mu.RLock()
 	defer l.mu.RUnlock()
 	return len(l.entries)
+}
+
+// ToProtocolEntry converts an internal LogEntry to a protocol LogEntry
+func (e LogEntry) ToProtocolEntry() protocol.LogEntry {
+	return protocol.LogEntry{
+		Index:   e.Index,
+		Term:    e.Term,
+		Type:    protocol.LogEntryType(e.Type),
+		Command: e.Command,
+	}
+}
+
+// FromProtocolEntry converts a protocol LogEntry to an internal LogEntry
+func FromProtocolEntry(e protocol.LogEntry) LogEntry {
+	return LogEntry{
+		Index:   e.Index,
+		Term:    e.Term,
+		Type:    LogEntryType(e.Type),
+		Command: e.Command,
+	}
 }
 
 // SerializeEntry serializes a log entry to JSON
