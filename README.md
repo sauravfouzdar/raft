@@ -91,11 +91,11 @@ make run-kv
 curl http://localhost:8082/status
 ```
 
-# Step 4: Set a value using Node 1
+# Step 4: Set a value with leader Node
 ``` curl -X PUT -d "value=hello_world" http://localhost:8081/kv/mykey ```
 
-# Step 5: Read the value from Node 2 to verify replication
+# Step 5: Read the value from Node 2 or Node 3 to verify replication
 ``` curl http://localhost:8082/kv/mykey ```
 
-# Step 6: Delete the value using Node 1
+# Step 6: Delete the value from the leader Node
 ``` curl -X DELETE http://localhost:8081/kv/mykey ```
