@@ -12,10 +12,9 @@ import (
 
 // TCPTransport implements the Transport interface using TCP
 type TCPTransport struct {
-	// nodeID is the ID of this node
+	
 	nodeID string
-
-	// addr is the address to listen on
+	
 	addr string
 
 	// peers is a map of peer node IDs to their addresses

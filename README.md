@@ -1,8 +1,14 @@
 # raft
-Raft implementation on a key-value pair
+Raft implementation on a key-value pair store
 
 
 # Raft Consensus Algorithm Implementation in Go
+
+
+
+# Getting Started with Raft Implementation
+
+This document guides you through setting up, building, and testing the Raft consensus algorithm implementation.
 
 ## Project Structure
 
@@ -43,17 +49,13 @@ raft/
 └── README.md                    # Project documentation
 ```
 
-# Getting Started with Raft Implementation
-
-This document guides you through setting up, building, and testing our Raft consensus algorithm implementation.
-
 ## Prerequisites
 
 To run this project, you need:
 
 - Go 1.16 or higher
 - git
-- A macOS environment (macOS M4 MacBook)
+- A macOS environment (macOS M4 MacBook) 
 
 ## Project Setup
 
@@ -80,6 +82,10 @@ go mod tidy
 make build
 ```
 
+```bash
+make run-kv
+```
+
 # Step 3: Wait for leader election Wait a few seconds for the cluster to elect a leader. Check which node is the leader:
 ```bash
 curl http://localhost:8082/status
@@ -90,3 +96,6 @@ curl http://localhost:8082/status
 
 # Step 5: Read the value from Node 2 to verify replication
 ``` curl http://localhost:8082/kv/mykey ```
+
+# Step 6: Delete the value using Node 1
+``` curl -X DELETE http://localhost:8081/kv/mykey ```

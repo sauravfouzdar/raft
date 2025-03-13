@@ -11,8 +11,7 @@ type Config struct {
 
 	// Address is the network address of this node (e.g., "localhost:8000")
 	Address string
-
-	// Peers is a map of peer node IDs to their network addresses
+	
 	Peers map[string]string
 
 	// HeartbeatTimeout is the interval between leader heartbeats
