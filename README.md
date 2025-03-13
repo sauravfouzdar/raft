@@ -99,3 +99,8 @@ curl http://localhost:8082/status
 
 # Step 6: Delete the value from the leader Node
 ``` curl -X DELETE http://localhost:8081/kv/mykey ```
+
+## References
+[Paper](https://raft.github.io/raft.pdf)
+[visualization](https://thesecretlivesofdata.com/raft/)
+
